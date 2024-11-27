@@ -4,7 +4,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import CategoryIcon from '@mui/icons-material/Category';
 import CategoryModal from '../component/DashBoard/CategoryModal';
 import Icon from '../component/DashBoard/Icon';
-import SearchBar from '../component/DashBoard/SearchBar';
+import SearchBar from '../component/common/SearchBar';
 import CategoryBoxes from '../component/DashBoard/CategoryBoxes';
 
 const Dashboard = () => {

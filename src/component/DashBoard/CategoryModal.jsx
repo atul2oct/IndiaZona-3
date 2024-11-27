@@ -2,15 +2,8 @@ import React, { useState } from 'react';
 import {
     Box,
     Typography,
-    FormControl,
-    Select,
-    MenuItem,
-    InputLabel,
-    TextField,
     Button,
     Backdrop,
-    Modal, 
-    Grid 
   } from '@mui/material';
 import OptionTab from './OptionTab';
 import Icon from './Icon';
@@ -26,10 +19,10 @@ const CategoryModal = ({ open, onClose, handleOpenFilter, handleOpenCategory }) 
         console.log(category)
       };
 
-  const applyFilters = () => {
-    console.log({ category });
-    onClose(); // Close the modal after applying filters
-  };
+//   const applyFilters = () => {
+//     console.log({ category });
+//     onClose(); // Close the modal after applying filters
+//   };
 
   return (
     <Backdrop  open={open} onClick={onClose}

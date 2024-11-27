@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import ReturnForm from "./component/ReturnForm";
-import Navbar from "./component/Navbar";
 import Error from "./Page/Error";
 import Dashboard from "./Page/Dashboard";
+import Navbar from "./component/Navbar/Navbar";
+import SellerPage from "./Page/SellerPage";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
         <Route path='/dashboard' element={<Dashboard/>}/>        
         <Route path='/dashboard/my-profile' element={<ReturnForm/>}/>
+        <Route path='/dashboard/seller' element={<SellerPage/>}/>
         <Route path='*' element={<Error/>}/>
       </Route>
     </Routes>

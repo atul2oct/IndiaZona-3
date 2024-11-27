@@ -1,11 +1,12 @@
 import React from 'react'
-import { sidebarLinks } from '../data/dashboardLinks'
+import { sidebarLinks } from '../../data/dashboardLinks'
 import SidebarLink from './SidebarLink';
 
 const Sidebar = () => {
+    console.log('SidebarLink',sidebarLinks)
   return (
     <div className=''>
-        <div className='flex min-w-[222px] flex-col  h-[calc(100vh-3.5rem)] py-10'>
+        <div className='flex min-w-[222px] flex-col h-[calc(100vh-3.5rem)] py-10'>
 
             <div className='flex flex-col'>
                 {
