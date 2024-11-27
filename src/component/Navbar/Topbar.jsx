@@ -1,27 +1,32 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { sidebarLinks } from '../../data/dashboardLinks';
-import Dropdown from './Dropdown';
+import Profile from './Profile';
+import NotificationIcon from './NotificationIcon';
+import { Box, Typography } from '@mui/material';
+import HeadingDynamic from '../common/HeadingDynamic';
+import CustomBtn from '../common/CustomBtn';
 
 const Topbar = () => {
-    const location = useLocation();
-
-    // Dynamically find the active link based on location.pathname
-    const matchedLink = sidebarLinks.find(link => link.path === location.pathname);
-
-    // Return the name of the matched link or a default heading
-    const heading = matchedLink ? matchedLink.name : 'Dashboard'; // Adjust 'Dashboard' as default
 
     return (
 
-        <div className='flex justify-between px-4'>
-            
-        <h1>
-            {heading}
-        </h1>
+        <Box display="flex" alignItems="center" justifyContent="space-between" gap={1}>
 
-        <Dropdown/>
-        </div>
+        {/* dynamic heading */}
+            <Typography variant="h4" fontWeight="bold" color="primary">
+                <HeadingDynamic/>
+            </Typography>
+
+            <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
+
+                {/* Notification bell */}
+
+                <NotificationIcon/>
+                {/* language */}
+                <CustomBtn color="warning" text='Eng' size='large'/>
+                {/* avatar name and account type */}
+                <Profile/>
+            </Box>
+        </Box>
 
     );
 };

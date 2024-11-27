@@ -3,34 +3,39 @@ import { Link, Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import Logo from "../../Assests/Images/Logo.png";
 import Topbar from './Topbar';
+import { Box } from '@mui/material';
 
 const Navbar = () => {
     return (
-        <div className='relative flex min-h-[calc(100vh-3.5rem)] '>
-            <div className='flex-col mx-auto border-r-2 border-r-[#E6EDFF]'>
-            {/* logo */}
-                <Link to = '/'>
-                    <img src={Logo} alt="logo" className="object-contain h-28"/>
+        <Box display="flex" minHeight="calc(100vh - 3.5rem)" position="relative">
+
+            {/* Sidebar Section */}
+            <Box display="flex" flexDirection="column" mx="auto" borderRight={2} borderColor="#E6EDFF">
+                {/* Logo */}
+                <Link to="/">
+                <Box component="img" src={Logo} alt="logo" sx={{ objectFit: "contain", height: 112 }} />
                 </Link>
-                {/* navbar/ sidebar */}
-                <Sidebar/>
 
-            </div>
+                {/* Sidebar */}
+                <Sidebar />
+            </Box>
 
-            {/* Main Content area */}
-            <div className='flex flex-col flex-1'>
+            {/* Main Content Section */}
+            <Box display="flex" flexDirection="column" flex={1}>
 
                 {/* Topbar */}
-                <div className='border-b-2 border-b-[#E6EDFF]'>
+                <Box mx={4} my={1}>
+                    {/* <Divider sx={{ borderColor: "#E6EDFF" }} /> */}
                     <Topbar />
-                </div>
+                </Box>
 
                 {/* Content Section */}
-                <div className='h-[calc(100vh-3.5rem)] flex-1 overflow-auto'>
+                <Box flex={1} overflow="auto" paddingTop={2} borderTop={2} borderColor="#E6EDFF">
                     <Outlet />
-                </div>
-            </div>
-        </div>
+                </Box>
+            </Box>
+
+        </Box>
       )
 }
 

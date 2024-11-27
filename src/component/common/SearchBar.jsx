@@ -12,16 +12,17 @@ const SearchBar = () => {
   return (
     <TextField
       variant="outlined"
-      placeholder="Search..."
+      placeholder="Search via name, mobile number or email ID"
       value={searchTerm}
       onChange={handleSearchChange}
       fullWidth
       sx={{
-        backgroundColor: '#f4f6f8',
-        borderRadius: 3,
+        backgroundColor: '#f4f6f8', // background color
+        borderRadius: 3, // rounded corners
+        maxWidth: '653px', // max width constraint
       }}
       InputProps={{
-        endAdornment: (
+        startAdornment: (
           <InputAdornment position="start">
             <SearchIcon />
           </InputAdornment>

@@ -13,11 +13,11 @@ const SidebarLink = ({link,iconName,name}) => {
     }
 
   return (
-    <NavLink to={link} className={`relative px-8 py-2 text-sm font-medium ${matchRoute(link) ? "bg-[#DEFFE8]":"bg-opacity-0"}`}>
-        <span className={`absolute left-0 top-0 h-full w-[0.2rem] bg-yellow-50 ${matchRoute(link) ? "opacity-100":"opacity-0"}`}></span>
-        <div className='flex items-center gap-x-2'>
+    <NavLink to={link} className={`relative px-8 py-2 text-sm font-medium ${matchRoute(link) ? "bg-[rgba(255,140,0,0.1)]":"bg-opacity-0"}`}>
+        <span className={`absolute left-0 top-0 h-full w-[0.2rem] bg-[#FF8C00] ${matchRoute(link) ? "opacity-100":"opacity-0"}`}></span>
+        <div className={`${matchRoute(link) ? "text-[#FF8C00]":""} flex items-center gap-x-2`}>
         <Icon className="text-lg"/>
-            <span>{name}</span>
+            <span >{name}</span>
         </div>
     
     </NavLink>

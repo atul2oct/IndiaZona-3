@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import ReturnForm from "./component/ReturnForm";
+// import ReturnForm from "./component/ReturnForm";
 import Error from "./Page/Error";
 import Dashboard from "./Page/Dashboard";
 import Navbar from "./component/Navbar/Navbar";
@@ -20,8 +20,8 @@ function App() {
         {/* Route for return */}
 
         <Route path='/dashboard' element={<Dashboard/>}/>        
-        <Route path='/dashboard/my-profile' element={<ReturnForm/>}/>
-        <Route path='/dashboard/seller' element={<SellerPage/>}/>
+        {/* <Route path='/dashboard/my-profile' element={<ReturnForm/>}/> */}
+        <Route path='/dashboard/sellers' element={<SellerPage/>}/>
         <Route path='*' element={<Error/>}/>
       </Route>
     </Routes>

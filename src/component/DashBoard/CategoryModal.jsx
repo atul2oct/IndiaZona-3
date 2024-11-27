@@ -5,7 +5,7 @@ import {
     Button,
     Backdrop,
   } from '@mui/material';
-import OptionTab from './OptionTab';
+import OptionTab from '../common/OptionTab';
 import Icon from './Icon';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import CategoryIcon from '@mui/icons-material/Category';
