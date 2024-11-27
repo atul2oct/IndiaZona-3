@@ -142,7 +142,7 @@ const TableComponent = () => {
 
                 <TableCell sx={{ maxWidth: 150}}>
                   <FormControl>
-                    <Select value={user.approval} onChange={(event) => changeApproval(user.name, event.target.value)} IconComponent={null} 
+                    <Select value={user.approval} onChange={(event) => changeApproval(user.name, event.target.value)} IconComponent={() => null} 
                     sx={{
                       '& .MuiSelect-select': {
                         padding: '0px', // Customize padding as needed
@@ -153,9 +153,9 @@ const TableComponent = () => {
                       
                     }}
                     >
-                      <MenuItem value="Pending"  sx={{ padding: 0 }}><CustomBtn text='Pending' color="warning" size='small'/></MenuItem>
-                      <MenuItem value="Profile Incomplete" sx={{ padding: 0 }}><CustomBtn text='Profile Incomplete' color="" size='small'/></MenuItem>
-                      <MenuItem value="Approved" sx={{ padding: 0 }}><CustomBtn text='Approved' color="success" size='small'/></MenuItem>
+                      <MenuItem value="Pending"><CustomBtn text='Pending' color="warning" size='small'/></MenuItem>
+                      <MenuItem value="Profile Incomplete"><CustomBtn text='Profile Incomplete' color="" size='small'/></MenuItem>
+                      <MenuItem value="Approved"><CustomBtn text='Approved' color="success" size='small'/></MenuItem>
                     </Select>
                   </FormControl>
                 </TableCell>
