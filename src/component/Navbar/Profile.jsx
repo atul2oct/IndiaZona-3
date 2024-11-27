@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Menu, MenuItem, IconButton, Avatar, Box, Typography } from '@mui/material';
+import { MenuItem, IconButton, Avatar, Box, Typography } from '@mui/material';
 import { VscDashboard, VscSignOut } from 'react-icons/vsc';
 import { Link } from 'react-router-dom';
 import Dropdown from '../common/Dropdown';

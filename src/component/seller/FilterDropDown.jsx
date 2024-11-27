@@ -3,7 +3,6 @@ import {
     Box,
     Typography,
     Button,
-    useMediaQuery,
   } from '@mui/material';
 import OptionTab from '../common/OptionTab';
 

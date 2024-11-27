@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {users} from '../../data/user'
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox, Button, Box, Select, MenuItem, FormControl, InputLabel, IconButton  } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox, Button, Box, Select, MenuItem, FormControl, IconButton  } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Dropdown from '../common/Dropdown';
 import CustomBtn from '../common/CustomBtn';
