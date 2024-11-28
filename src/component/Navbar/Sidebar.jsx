@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // Check for small screens
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('lg')); // Check for small screens
   const [isDrawerOpen, setDrawerOpen] = useState(!isSmallScreen); // Sidebar open state
 
   return (

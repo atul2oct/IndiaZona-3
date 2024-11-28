@@ -1,6 +1,6 @@
 import React from 'react'
 import * as Icons from "react-icons/vsc"
-import { NavLink, matchPath, useLocation } from 'react-router-dom'
+import { matchPath, useLocation } from 'react-router-dom'
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, ButtonBase, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -15,7 +15,7 @@ const SidebarLink = ({link,iconName,name}) => {
     }
 
     const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // Check for small screens
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('lg')); // Check for small screens
 
   return (
     <ButtonBase

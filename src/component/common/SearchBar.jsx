@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, InputAdornment } from '@mui/material';
+import { TextField, InputAdornment, useTheme, useMediaQuery } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = () => {
@@ -8,6 +8,11 @@ const SearchBar = () => {
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value); // Update the search term on change
   };
+
+  const theme = useTheme();
+  
+  // Check if the screen width is 768px or less
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // 'md' corresponds to 768px
 
   return (
     <TextField
@@ -19,7 +24,7 @@ const SearchBar = () => {
       sx={{
         backgroundColor: '#f4f6f8', // background color
         borderRadius: 3, // rounded corners
-        maxWidth: '653px', // max width constraint
+        maxWidth: isSmallScreen ? '400px' : '600px', // Reduce width on small screens
       }}
       InputProps={{
         startAdornment: (

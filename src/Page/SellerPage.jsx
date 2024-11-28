@@ -21,6 +21,7 @@ const SellerPage = () => {
 
     const theme = useTheme(); // Access the theme object
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); // Check for small screens
+    const isMediumScreen = useMediaQuery(theme.breakpoints.down('md')); 
   return (  
 
     <Box display="flex" flexDirection="column" justifyContent="center" gap={1} mx={4}>
@@ -30,7 +31,7 @@ const SellerPage = () => {
       </Typography>
 
       {/* search filter action button */}
-      <Stack spacing={2} direction={isSmallScreen ? "column":"row"} alignItems="center" justifyContent="space-between">
+      <Stack spacing={2} direction={isSmallScreen ? "column":"row"} alignItems={isSmallScreen ? "start":"center"} justifyContent={isMediumScreen ? "start":"space-between"}>
         <SearchBar/>
 
         <Box display="flex" justifyContent="center" gap={1}>
