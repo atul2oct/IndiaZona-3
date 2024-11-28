@@ -8,8 +8,7 @@ import SellerPage from "./Page/SellerPage";
 function App() {
   
   return (
-    <main className='w-screen min-h-screen bg-white text-[#A1A1A1] flex flex-col
-    font-inter'>
+    <main>
     
     
     <Routes>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Drawer, Box, List, Divider, IconButton, useMediaQuery } from '@mui/material';
+import { Drawer, Box, Divider, IconButton, useMediaQuery } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { sidebarLinks } from '../../data/dashboardLinks'
@@ -14,7 +14,7 @@ const Sidebar = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(!isSmallScreen); // Sidebar open state
 
   return (
-    <Box display="flex" flexDirection="column" mx="auto" borderRight={2} borderColor="#E6EDFF" sx={{width: isSmallScreen ? 80 : 200,}}>
+    <Box display="flex" flexDirection="column" mx="auto" sx={{width: isSmallScreen ? 80 : 200,}}>
         {/* Toggle button for small screens */}
         {isSmallScreen && (
         <IconButton onClick={() => setDrawerOpen(!isDrawerOpen)} sx={{ position: 'absolute', top: 25 }}>
