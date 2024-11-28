@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import {users} from '../../data/user'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox, Button, Box, Select, MenuItem, FormControl, IconButton, useMediaQuery  } from '@mui/material';
@@ -10,7 +11,8 @@ import { useTheme } from '@mui/material/styles';
 const TableComponent = () => {
 
     const theme = useTheme(); // Access the theme object
-    const isBetween768and600 = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // Check for small screens
+
     const Approval = ['All','Approved','Pending'];
     // Define the actions array
     const actions = [
@@ -84,8 +86,12 @@ const TableComponent = () => {
   return (
     <Box sx={{
       display: 'flex',
-      flexDirection:'column',
-      marginBottom: 2,
+      flexWrap: 'wrap',
+      marginBottom: 2,      
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: 1,
+        justifyContent: 'center', // Align items centrally on smaller screens
+      },
     }}>
 
       {/* Filter options */}
@@ -110,19 +116,8 @@ const TableComponent = () => {
       <TableContainer
         sx={{
             borderRadius: '8px', // Apply border-radius to TableContainer
-            // overflowX: 'auto', // Ensures the rounded corners are respected
-            border: '1px solid #BABABA', // Add border to the container
-
-            maxWidth: isBetween768and600 ? '90%' : '100%', // Apply maxWidth: 750px for screens between 768px and 600px
-            margin: '0 auto', // Centers the content horizontally
-            
-            // [theme.breakpoints.down('md')]: {
-            //   maxWidth: '750px'
-            // },
-            // [theme.breakpoints.down('sm')]: {
-            //   maxWidth: '450px'
-            // },
-            
+            overflow: 'hidden', // Ensures the rounded corners are respected
+            border: '1px solid #BABABA' // Add border to the container
         }}
         >
         <Table>
