@@ -1,4 +1,5 @@
-import { IconButton, Button, Stack, Typography, Box } from "@mui/material";
+import { IconButton, Button, Stack, Typography, Box, useMediaQuery } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import React, { useState } from 'react'
 import Dropdown from "../component/common/Dropdown";
@@ -17,6 +18,9 @@ const SellerPage = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const theme = useTheme(); // Access the theme object
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); // Check for small screens
   return (  
 
     <Box display="flex" flexDirection="column" justifyContent="center" gap={1} mx={4}>
@@ -26,7 +30,7 @@ const SellerPage = () => {
       </Typography>
 
       {/* search filter action button */}
-      <Stack spacing={2} direction="row" alignItems="center" justifyContent="space-between">
+      <Stack spacing={2} direction={isSmallScreen ? "column":"row"} alignItems="center" justifyContent="space-between">
         <SearchBar/>
 
         <Box display="flex" justifyContent="center" gap={1}>

@@ -1,74 +1,78 @@
 import React, { useEffect, useState } from 'react';
 import {users} from '../../data/user'
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox, Button, Box, Select, MenuItem, FormControl, IconButton  } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox, Button, Box, Select, MenuItem, FormControl, IconButton, useMediaQuery  } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Dropdown from '../common/Dropdown';
 import CustomBtn from '../common/CustomBtn';
+import { useTheme } from '@mui/material/styles';
 
 
 const TableComponent = () => {
 
+    const theme = useTheme(); // Access the theme object
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // Check for small screens
+
     const Approval = ['All','Approved','Pending'];
     // Define the actions array
-  const actions = [
-    'Profile / Edit',
-    'Log in as this Seller',
-    'Go to Payment',
-    'Payment History',
-    'Chat',
-    'Ban this seller',
-    'Resend E-signature',
-    'Manage E-sign manually',
-    'Manage Failed KYC',
-    'Delete'
-  ];
-  const [selectedApproval, setSelectedApproval] = useState('All');
-  const [selectedUsers, setSelectedUsers] = useState(new Set());
-  const [filteredUsers, setFilteredUsers] = useState([]);
+    const actions = [
+      'Profile / Edit',
+      'Log in as this Seller',
+      'Go to Payment',
+      'Payment History',
+      'Chat',
+      'Ban this seller',
+      'Resend E-signature',
+      'Manage E-sign manually',
+      'Manage Failed KYC',
+      'Delete'
+    ];
+    const [selectedApproval, setSelectedApproval] = useState('All');
+    const [selectedUsers, setSelectedUsers] = useState(new Set());
+    const [filteredUsers, setFilteredUsers] = useState([]);
 
-  const handleApprovalChange = (approval) => {
-    setSelectedApproval(approval);
-  };
+    const handleApprovalChange = (approval) => {
+      setSelectedApproval(approval);
+    };
 
-  const handleCheckboxChange = (name) => {
-    const updatedSelectedUsers = new Set(selectedUsers);
-    if (updatedSelectedUsers.has(name)) {
-      updatedSelectedUsers.delete(name);
-    } else {
-      updatedSelectedUsers.add(name);
-    }
-    setSelectedUsers(updatedSelectedUsers);
-  };
-
-  useEffect(() => {
-    // Filtering users based on selectedApproval
-    const filtered = users.filter((user) => {
-      if (selectedApproval === 'All') {
-        return true;
+    const handleCheckboxChange = (name) => {
+      const updatedSelectedUsers = new Set(selectedUsers);
+      if (updatedSelectedUsers.has(name)) {
+        updatedSelectedUsers.delete(name);
+      } else {
+        updatedSelectedUsers.add(name);
       }
-      return user.approval === selectedApproval;
-    });
-    setFilteredUsers(filtered);
-  }, [selectedApproval]);  // Run effect whenever selectedApproval changes
+      setSelectedUsers(updatedSelectedUsers);
+    };
 
-  const handleSelectAllChange = (event) => {
-    if (event.target.checked) {
-      setSelectedUsers(new Set(filteredUsers.map((user) => user.name)));
-    } else {
-      setSelectedUsers(new Set());
-    }
-  };
+    useEffect(() => {
+      // Filtering users based on selectedApproval
+      const filtered = users.filter((user) => {
+        if (selectedApproval === 'All') {
+          return true;
+        }
+        return user.approval === selectedApproval;
+      });
+      setFilteredUsers(filtered);
+    }, [selectedApproval]);  // Run effect whenever selectedApproval changes
 
-  const changeApproval = (userName, newApproval) => {
-    // Update the approval in the filteredUsers array
-    setFilteredUsers((prevUsers) =>
-      prevUsers.map((user) =>
-        user.name === userName ? { ...user, approval: newApproval } : user
-      )
-    );
-  };
+    const handleSelectAllChange = (event) => {
+      if (event.target.checked) {
+        setSelectedUsers(new Set(filteredUsers.map((user) => user.name)));
+      } else {
+        setSelectedUsers(new Set());
+      }
+    };
 
-  const [anchorEl, setAnchorEl] = useState(null);
+    const changeApproval = (userName, newApproval) => {
+      // Update the approval in the filteredUsers array
+      setFilteredUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user.name === userName ? { ...user, approval: newApproval } : user
+        )
+      );
+    };
+
+    const [anchorEl, setAnchorEl] = useState(null);
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -79,10 +83,18 @@ const TableComponent = () => {
     };
 
   return (
-    <Box sx={{ width: '100%', overflow: 'auto' }}>
+    <Box sx={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      marginBottom: 2,      
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: 1,
+        justifyContent: 'center', // Align items centrally on smaller screens
+      },
+    }}>
 
       {/* Filter options */}
-      <Box marginBottom={2} display='flex'>
+      <Box marginBottom={2} display="flex" flexWrap="wrap">
         {Approval.map((approval) => (
           <Button
             key={approval}

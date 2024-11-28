@@ -1,24 +1,19 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
-import Logo from "../../Assests/Images/Logo.png";
 import Topbar from './Topbar';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 const Navbar = () => {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // Check for small screens
+    console.log(isSmallScreen)
     return (
         <Box display="flex" minHeight="calc(100vh - 3.5rem)" position="relative">
 
             {/* Sidebar Section */}
-            <Box display="flex" flexDirection="column" mx="auto" borderRight={2} borderColor="#E6EDFF">
-                {/* Logo */}
-                <Link to="/">
-                <Box component="img" src={Logo} alt="logo" sx={{ objectFit: "contain", height: 112 }} />
-                </Link>
-
-                {/* Sidebar */}
-                <Sidebar />
-            </Box>
+            <Sidebar/>            
 
             {/* Main Content Section */}
             <Box display="flex" flexDirection="column" flex={1}>
